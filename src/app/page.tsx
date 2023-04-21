@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <div
-        className="bg-gray-200 mt-10 p-6 bg-cover bg-top rounded-md"
+        className="bg-gray-200 p-6 bg-cover bg-top rounded-md mt-20 md:mt-10 h-52"
         style={{
           backgroundImage: `url(/images/t1.jpg)`,
         }}
@@ -37,9 +37,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex justify-between mt-8">
+      <div className="flex flex-col md:flex-row justify-between mt-3 md:mt-8">
         <div
-          className="w-1/2 bg-cover rounded-md mr-10"
+          className="bg-cover w-full md:w-1/2 rounded-md mr-10"
           style={{
             backgroundImage: `url(/images/l1.jpg)`,
           }}
@@ -69,7 +69,7 @@ export default function Home() {
           </div>
         </div>
         <div
-          className="w-1/2 bg-cover rounded-md"
+          className="w-full md:w-1/2 bg-cover rounded-md mt-3 md:mt-0"
           style={{
             backgroundImage: `url(/images/r1.jpg)`,
           }}

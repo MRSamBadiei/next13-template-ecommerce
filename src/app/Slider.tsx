@@ -49,22 +49,24 @@ const Left = () => {
 
 const Looper: React.FC<Looper> = ({ name, price, imgSrc, id }) => {
   return (
-    <Link href={`plants/${id}`}>
-      <li className="text-center w-48 h-48 flex-shrink-0 snap-start touch-pan-x">
-        <div className="bg-item rounded-sm">
-          <Image
-            src={`/images/${imgSrc}`}
-            className="w-96 h-40 object-scale-down"
-            width={384}
-            height={160}
-            alt={""}
-          />
-        </div>
+    <div>
+      <Link href={`plants/${id}`}>
+        <li className="text-center w-48 h-48 flex-shrink-0 snap-start touch-pan-x touch-pan-y">
+          <div className="bg-item rounded-sm">
+            <Image
+              src={`/images/${imgSrc}`}
+              className="w-96 h-40 object-scale-down"
+              width={384}
+              height={160}
+              alt={""}
+            />
+          </div>
 
-        <div className="mt-4">{name}</div>
-        <div className="text-sm font-light">price - {price}</div>
-      </li>
-    </Link>
+          <div className="mt-4">{name}</div>
+          <div className="text-sm font-light">price - {price}</div>
+        </li>
+      </Link>
+    </div>
   );
 };
 
