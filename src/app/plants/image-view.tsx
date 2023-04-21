@@ -1,7 +1,5 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { getAllPlants } from "../../../lib/getPlant";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,9 +14,13 @@ export default function ImageView() {
   >([]);
 
   useEffect(() => {
-    getAllPlants().then((e) => {
-      setPlant(e);
-    });
+    const data = fetch(`/api/data/`, {
+      method: "GET",
+    })
+      .then((e) => e.json())
+      .then((data) => {
+        setPlant(data);
+      });
   }, []);
 
   return (

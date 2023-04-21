@@ -6,10 +6,8 @@ interface Looper {
   id: string;
 }
 import { useEffect, useRef, useState } from "react";
-
 import Link from "next/link";
 import Image from "next/image";
-import { getAllPlants } from "../../lib/getPlant";
 
 const Right = () => {
   return (
@@ -83,9 +81,13 @@ export default function Slider({ params }: { params: { title: string } }) {
   >([]);
 
   useEffect(() => {
-    getAllPlants().then((e) => {
-      setPlant(e);
-    });
+    const data = fetch(`/api/data/`, {
+      method: "GET",
+    })
+      .then((e) => e.json())
+      .then((data) => {
+        setPlant(data);
+      });
   }, []);
 
   useEffect(() => {

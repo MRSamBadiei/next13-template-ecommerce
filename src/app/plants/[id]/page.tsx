@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { getPlant } from "../../../../lib/getPlant";
 import Slider from "../../Slider";
 import Link from "next/link";
 
@@ -23,9 +22,14 @@ export default function Plants({ params }: { params: { id: number } }) {
   });
 
   useEffect(() => {
-    getPlant(params.id.toString()).then((e) => {
-      setPlant(e);
+    const data = fetch(`/api/data/${params.id.toString()}`, {
+      method: "GET",
     });
+    data
+      .then((e) => e.json())
+      .then((data) => {
+        setPlant(data);
+      });
   }, [params.id]);
 
   const add = () => {
